@@ -2,3 +2,5 @@ __pycache__/
 .ipynb_checkpoints
 .DS_Store
 .virtual_documents/
+data/imgs_face_clean
+data/imgs_face_clean_original
