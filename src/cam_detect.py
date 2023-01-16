@@ -1,3 +1,5 @@
+# Not resized version
+
 import cv2
 import pickle
 import face_recognition

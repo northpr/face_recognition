@@ -1,3 +1,5 @@
+# Resize version to have better webcam performance
+
 import cv2
 import pickle
 import face_recognition
@@ -10,11 +12,15 @@ with open("encodings.pickle", "rb") as f:
 
 # Initialize front video
 cap = cv2.VideoCapture(0)
+
+# Initialize variables
+face_locations = []
+face_encodings = []
+face_names = []
 process_frame = True
 
-
 while True:
-    ret, frame = cap.read()
+    _, frame = cap.read()
     if process_frame:
         small_frame = cv2.resize(frame, (0,0), fx=0.25, fy=0.25)
 
@@ -32,10 +38,15 @@ while True:
             matches = face_recognition.compare_faces(model["encodings"], face_encoding)
             name = "Unknown"
 
-            face_distances = face_recognition.face_distance(model["encodings"], face_encoding)
-            best_match_index = np.argmin(face_distances)
-            if matches[best_match_index]:
-                name = model["names"]
+            if True in matches:
+                first_match_index = matches.index(True)
+                name = model["names"][first_match_index]
+
+
+            # face_distances = face_recognition.face_distance(model["encodings"], face_encoding)
+            # best_match_index = np.argmin(face_distances)
+            # if matches[best_match_index]:
+            #     name = model["names"]
             face_names.append(name)
 
     process_frame = not process_frame
@@ -52,7 +63,7 @@ while True:
         cv2.rectangle(frame, (left, top), (right, bottom), (0,0,255),2)
         # Draw a label with a name below the face
         cv2.rectangle(frame, (left, bottom-35), (right, bottom),(0,255,0), cv2.FILLED)
-        cv2.putText(frame, name, (left+6, bottom-6), cv2.FONT_HERSHEY_DUPLEX, 1.0, (0,0,0),2)
+        cv2.putText(frame, str(name), (left+6, bottom-6), cv2.FONT_HERSHEY_DUPLEX, 1.0, (0,0,0),2)
 
     cv2.imshow("test", frame)
 
@@ -62,6 +73,5 @@ while True:
         break
 
 cap.release()
-
 cv2.destroyAllWindows()
     
