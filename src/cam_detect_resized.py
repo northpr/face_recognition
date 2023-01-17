@@ -65,7 +65,7 @@ while True:
         cv2.rectangle(frame, (left, bottom-35), (right, bottom),(0,255,0), cv2.FILLED)
         cv2.putText(frame, str(name), (left+6, bottom-6), cv2.FONT_HERSHEY_DUPLEX, 1.0, (0,0,0),2)
 
-    cv2.imshow("test", frame)
+    cv2.imshow("face_recognition", frame)
 
             
     # Exit if 'q' is pressed
