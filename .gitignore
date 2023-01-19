@@ -4,3 +4,6 @@ __pycache__/
 .virtual_documents/
 data/imgs_face_clean
 data/imgs_face_clean_original
+data/from_kaggle.zip
+data/imgs_face_original
+data/for_model
