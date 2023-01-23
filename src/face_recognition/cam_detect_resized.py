@@ -7,7 +7,7 @@ import numpy as np
 
 
 # Load model from Pickle file
-with open("m_face_recognition.pickle", "rb") as f:
+with open("m_face_recognition_v2.pickle", "rb") as f:
     model = pickle.load(f)
 
 # Initialize front video
