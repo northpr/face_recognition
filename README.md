@@ -1,1 +1,1 @@
-# Face recogition by using DeepFace
+# Facial Recognition for Attendance system
