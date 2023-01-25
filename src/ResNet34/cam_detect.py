@@ -3,16 +3,15 @@ import torch
 import numpy as np
 from classes_dict import data_dict
 from face_recog_network import FaceRecog
+from collections import Counter
 
-
-# Load the state_dict of the trained model
+# Load all paramemters and state_dict of the trained model
 state_dict = torch.load('Face_Recognition_checkpoint.pth', map_location="cpu")
-CLASSES=len(data_dict)
-model = FaceRecog(num_classes=CLASSES)
-
-# Load the state_dict into the model and prepare for eval mode
+model = FaceRecog(num_classes=len(data_dict))
 model.load_state_dict(state_dict)
 model.eval()
+
+# Initialize list to store idx values and for itme read
 
 # Initialize the webcam and call model to detect face
 cap = cv2.VideoCapture(0)
@@ -26,6 +25,7 @@ while True:
 
     # Check if only one face is detected
     if len(faces) == 1:
+        pred_list = []
         # Draw a rectangle around each detected face
         for (x, y, w, h) in faces:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
@@ -43,13 +43,18 @@ while True:
             # Get the predicted class
             _, pred = torch.max(output, 1)
             idx = pred.item()
-            on_screen_display = f"{idx} - {data_dict[idx]['full_name']}"
-
-            # Draw the predicted class on the frame
-            cv2.putText(frame, on_screen_display, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+            
+            if len(pred_list) < 1000:
+                pred_list.append(idx)
+                on_screen_display = "Processing . . . . ."
+                cv2.putText(frame, on_screen_display, (x,y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0,255,9), 2)
+            else:
+                most_common_idx = max(set(pred_list), key=pred_list.count)
+                on_screen_display = f"{idx} - {data_dict[most_common_idx]['full_name']}"
+                cv2.putText(frame, on_screen_display, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
     else:
-        cv2.putText(frame, "Please show only one face", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 255), 2)
+        cv2.putText(frame, "Please show only one face", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 2)
 
     # Show the frame
     cv2.imshow('ResNet34', frame)
