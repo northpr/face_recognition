@@ -18,3 +18,16 @@ To do this, we have utilized a variety of techniques and strategies to attain gr
 - **facial_recognition (lib)**: Due to the accuracy compared to another deep learning model, this model is not used. Pros include that it's quite simple to learn and easy to comprehend.
 
 - **ResNet34 (with PyTorch)**: is now in use. It provides tremendous precision. Slightly more difficult than facial recognition as it requires knowledge of deep learning and the PyTorch framework.
+
+- **FaceNet**: Next is FaceNet
+
+- **VGGFace**: 
+
+# References:
+- [Analysis of different face detection and
+recognition models for Android ](https://www.diva-portal.org/smash/get/diva2:1574943/FULLTEXT01.pdf)
+
+- [A Comparative Analysis Of Face Recognition
+Models On Masked Faces](https://www.ijstr.org/final-print/oct2020/A-Comparative-Analysis-Of-Face-Recognition-Models-On-Masked-Faces.pdf)
+
+- [A Comparative Study of Facial Recognition Techniques](https://www.diva-portal.org/smash/get/diva2:1327708/FULLTEXT01.pdf)
