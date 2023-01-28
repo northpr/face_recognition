@@ -24,7 +24,7 @@ Due to the use of my device (Macbook M1). I develop most of the code in differen
 
 - **ResNet34 (with PyTorch)**: is now in use. It provides tremendous precision. Slightly more difficult than facial recognition as it requires knowledge of deep learning and the PyTorch framework.
 
-- **FaceNet**: Next is FaceNet
+- **FaceNet**: Next is FaceNet - Already write CNN model for embedding - still on the try a lot of problem with environments.
 
 - **VGGFace**: 
 
