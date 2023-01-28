@@ -7,7 +7,12 @@ Varied models have different advantages and disadvantages, with some being parti
 
 To do this, we have utilized a variety of techniques and strategies to attain greater precision and speed than anticipated. Whoever is interested in this repository. Because I have not only trained the model in Github, you should possess understanding of different technologies.
 
-**Warning❗️** I've worked in multiple locations to train and incorporate the model as a.pth or.pickle file before deploying it on my Mac, as it is not compatible with most deep learning algorithms. If I have not provided a link to the Python file. Mention me in any context.
+### **Warning❗️** 
+I've worked in multiple locations to train and incorporate the model as a.pth or .pickle file before deploying it on my Mac, as it is not compatible with most deep learning algorithms. If I have not provided a link to the Python file. Mention me in any context.
+
+Due to the use of my device (Macbook M1). I develop most of the code in different environments. You might find the trouble with my code. I would strongly suggest that if you develop on an apple chip, you might need to swap between your local device (to test face recognition with a Laptop camera) and Google Colab to develop a specific model.
+
+
 
 ## 🧠 What we should know
 - **Requirements**: Python ,OpenCV, Deep Learning, PyTorch, Tensorflow
