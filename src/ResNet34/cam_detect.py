@@ -44,18 +44,10 @@ while True:
             # Get the predicted class
             _, pred = torch.max(output, 1)
             idx = pred.item()
-            while len(pred_list) < 10000:
-                pred_list.append(idx)
-                on_screen_display = f"Processing . . . . ."
-                cv2.rectangle(frame, (x,y-50), (x+300, y-10), (0,0,255), -1)
-                cv2.putText(frame, on_screen_display, (x,y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0,0,0), 2)
-            if len(pred_list) == 10000:
-                pred_count = Counter(pred_list)
-                most_pred = pred_count.most_common(2)
-                on_screen_display = f"{most_pred[0][0]} - {data_dict[most_pred[0][0]]['full_name']}"
-                cv2.rectangle(frame, (x,y-50), (x+300, y-10), (0,255,0), -1)
-                cv2.putText(frame, on_screen_display, (x,y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0,0,0), 2)
-                time.sleep(3)
+            on_screen_display = f"{idx} - {data_dict[idx]['full_name']}"
+            cv2.rectangle(frame, (x,y-50), (x+300, y-10), (0,255,0), -1)
+            cv2.putText(frame, on_screen_display, (x,y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0,0,0), 2)
+            # time.sleep(3)
             # else:
             #     most_common_idx = max(set(pred_list), key=pred_list.count)
             #     on_screen_display = f"{idx} - {data_dict[most_common_idx]['full_name']}"

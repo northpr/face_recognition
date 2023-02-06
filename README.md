@@ -12,6 +12,8 @@ I've worked in multiple locations to train and incorporate the model as a.pth or
 
 Due to the use of my device (Macbook M1). I develop most of the code in different environments. You might find the trouble with my code. I would strongly suggest that if you develop on an apple chip, you might need to swap between your local device (to test face recognition with a Laptop camera) and Google Colab to develop a specific model.
 
+You might need to install requirements.txt separately for different tasks in this repo but I will prefer normal requirements for doing the normal task.
+
 
 
 ## 🧠 What we should know

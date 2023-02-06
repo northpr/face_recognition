@@ -1,0 +1,14 @@
+jupyterlab
+jupyterlab-drawio
+jupyterlab-git
+jupyterlab-pygments
+jupyterlab-spellchecker
+jupyterlab-tabnine
+matplotlib
+numpy
+opencv-python
+pandas
+scikit-learn
+seaborn
+torch
+torchvision
