@@ -9,4 +9,5 @@ data/imgs_face_original
 data/for_model
 data/for_model_full/
 data/imgs_face_clean_original_copy/
+data/video/
 nbs/FaceNet/for_model_full/
